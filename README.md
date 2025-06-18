@@ -88,9 +88,6 @@ Si encuentras algún problema durante el proceso, asegúrate de revisar:
 * Que estés utilizando versiones compatibles de Node.js y los gestores de paquetes.
 * La documentación del proyecto en el repositorio de GitHub.
 
-También puedes abrir un *issue* en el repositorio si se trata de un error no documentado.
-
-¿Te gustaría que también te genere esta documentación en formato Markdown o lista para un archivo `README.md`?
 
 
 ## 💻 En escritorio
