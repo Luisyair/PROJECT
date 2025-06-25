@@ -1,6 +1,5 @@
-Perfecto. Aquí tienes una versión más desarrollada, profesional y detallada del texto. Puede servir para documentación interna o pública en un README:
+AUN ESTA EN DESARROLLO, PARA AGREGARLE MAS FUNCIONALIDADES.
 
----
 
 ## 🚀 Ejecución del Proyecto en Entorno Local
 
