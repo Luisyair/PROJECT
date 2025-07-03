@@ -13,21 +13,30 @@ import { Card } from "./components/shared/Card";
 
 
 import Header from "./components/shared/Header";
+import { CreateCategory, CreatePedido, CreateProducto } from "./components/shared/Create";
+import Body from "./components/shared/Body";
 
 // Se extrae las categorías únicas de tu base de datos
-const categories = [...new Set(cardsData.map(c => c.category))]; 
+const categories = [...new Set(cardsData.map(c => c.category))];
 
-
+const Fecha = new Date().toISOString().split("T")[0];
 function App() {
 
   // Activamos el estado y lo levantado – control central :siempre que se iniciela app inica con el
   // de la posicion (N)
+
   const [activeCategory, setActiveCategory] = useState(categories[0]);
 
   //Filtras según la categoría vigente
   const visibleCards = cardsData.filter(
     (card) => card.category === activeCategory
   );
+
+
+  //Filtras según el vigente
+  // const visibleCards = cardsData.filter(
+  //   (card) => card.category === activeCategory
+  // );
 
   // const categoriaActual = "Bebidas"; // podría venir de un estado también
 
@@ -44,8 +53,8 @@ function App() {
   // export default function DishGallery ({active}) {
   //   const visible = cardsData.filter(plato => plato.category == ShowCard);
   // }
-  
-  
+
+
   // dishes.filter(dish => dish.category === active);
 
   // creacion de funcion ;mostrar menu 
@@ -61,22 +70,25 @@ function App() {
   }
 
 
-//   const DishGallery = (active) => {
-//   if (!active || active === "Italiano") return cardsData;
+  //   const DishGallery = (active) => {
+  //   if (!active || active === "Italiano") return cardsData;
 
-//   return visible;
-// };
-// const visible = cardsData.filter((plato) => plato.category === active)
-
-
-   
-// function DishGallery() {
-//   const [active, setActive] = useState("Italiano");     // categoría seleccionada
-//   const visible = toggleMmenu(active); 
+  //   return visible;
+  // };
+  // const visible = cardsData.filter((plato) => plato.category === active)
 
 
 
+  // function DishGallery() {
+  //   const [active, setActive] = useState("Italiano");     // categoría seleccionada
+  //   const visible = toggleMmenu(active); 
 
+
+
+
+  // ot 
+
+  const [activeView, setActiveView] = useState("dishes");
 
 
 
@@ -84,7 +96,11 @@ function App() {
 
     <div className="bg-[#ffffff] w-full min-h-screen">
       {/* IZQUIERDA de la pagina , aqui le paso el componente para mi sidebar  */}
-      <Sidebar ShowMenu={!ShowMenu} />
+      {/* <Sidebar ShowMenu={!ShowMenu} /> */}
+
+      <Sidebar ShowMenu={!ShowMenu} setActiveView={setActiveView} 
+      activeView={activeView}/>
+
 
       {/* derecha  */}
       <Car ShowOrder={ShowOrder} setShowOrder={setShowOrder} />
@@ -126,95 +142,36 @@ function App() {
       <main className="lg:pl-32  lg:pr-[370px]  pb-20">
 
         {/* CENTRO de la pagina la mitad en donde esta los alimentos (md: 768px	Tablets y pantallas medianas )*/}
-        <div className="lg:col-span-6 md:p-8 p-4 ">
-
-          {/* header - cabeza dela pagina  */}
-          <Header 
-            categories={categories}
-            active={activeCategory}
-            setActive={setActiveCategory}
-          
-          />
 
 
 
-          {/* titulo principoal del contenido DE LAS COMIDAS  y la opcion de flecha mostrar mas */}
-          <div className="flex items-center justify-between mb-16">
-            <h2 className="text-xl text-black "> show Dishes</h2>
-            <button className="flex items-center gap-4 text-black bg-[#e1e3e8be] py-2 px-4 rounded-lg"> <FaHome /> Dine IN </button>
-          </div>
+        {/* cambio de pagina para crear productos  */}
 
+        <div className="lg:col-span-6 md:p-8 p-4">
+          {activeView === "dishes" && (
+            <>
+              <Header
+                categories={categories}
+                active={activeCategory}
+                setActive={setActiveCategory}
+              />
+              <div className="flex items-center justify-between mb-16 ">
+                <h2 className="text-xl text-black "> show Dishes</h2>
+                <button className="flex items-center gap-4 text-black bg-[#e1e3e8be] py-2 px-4 rounded-lg">
+                  <FaHome /> Dine IN
+                </button>
+              </div>
+              <Body active={activeCategory} />
+            </>
+          )}
 
-          {/* contenido principal donde van las comidas , cada una tendra una CARD */}
-
-          <div className="p-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-16 ">
-            {/* Creacion de card  ,  object-cover :para no distorcionar la imagen   (shadow-2xl rounded-full : sobra para la imagen)*/}
-
-            {/* utilizar map cuando leponga la base de datos  */}
-            {/* 
-            <Card img="comida.png" description="Spacy seafood  nofdes"
-            price="$70.000 cop" category="430" />
-
-             <Card img="dish.png" description="Spacy seafood  nofdes"
-            price="$70.000 cop" category="430" />
-
-            <Card img="comida.png" description="Spacy seafood  nofdes"
-            price="$70.000 cop" category="430" />
-
-            <Card img="dish.png" description="Spacy seafood  nofdes"
-            price="$70.000 cop" category="430" />
-
-            <Card img="comida.png" description="Spacy seafood  nofdes"
-            price="$70.000 cop" category="430" /> */}
-
-            {/* <div className="p-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-16 "> */}
-
-
-
-
-            {/* {listaDePlatos
-              .filter((item) => item.category === categoriaActual)
-              .map((item, index) => (
-                <Card
-                  key={index}
-                  img={item.img}
-                  description={item.description}
-                  price={item.price}
-                  category={item.category}
-                />
-              ))} */}
-
-            
-              {visibleCards.map(({id,img,description,price,category}) => (
-                <Card
-                  key={id}
-                  img={img}
-                  description={description}
-                  price={price}
-                  category={category}
-                />
-              ))}
-            {/* </section> */}
-
-            
-            
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-          </div>
-
+          {activeView === "createCategory" && <CreateCategory />}
+          {activeView === "createProducto" && <CreateProducto />}
         </div>
+
+
+
+
 
 
 

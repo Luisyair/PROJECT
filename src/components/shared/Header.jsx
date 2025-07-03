@@ -9,6 +9,7 @@ import { FaSearch } from "react-icons/fa";
 
 export default function Header({ categories , active, setActive }) {
 
+    const Fecha = new Date().toISOString().split("T")[0];
 
     return (
         //   {/* header - cabeza dela pagina  */}
@@ -17,12 +18,12 @@ export default function Header({ categories , active, setActive }) {
             {/* texto de inicial - este div es para ponerlos en columna flex,  gap: espacio entre si - (titlle and sucrh,) 
         //             mb: tamaño de la margen botton*/}
 
-            <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4 mb-6">
+            <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4 mb-6"  >
 
                 {/* texto de inicial - principal  */}
                 <div >
                     <h1 className="text-2xl text-gray-3''"> jeaker </h1>
-                    <p className="text-gray-500'"> 7 -julio - 2.000</p>
+                    <p className="text-gray-500'"> {Fecha} </p>
                 </div>
 
 

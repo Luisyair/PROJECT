@@ -1,5 +1,5 @@
 AUN ESTA EN DESARROLLO, PARA AGREGARLE MAS FUNCIONALIDADES. listo
-
+(Nueva funcionalidad cambiar el body al presionar los botoibnes del slider : 2 de julio 2025)
 
 ## 🚀 Ejecución del Proyecto en Entorno Local
 

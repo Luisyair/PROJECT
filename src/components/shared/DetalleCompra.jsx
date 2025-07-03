@@ -8,6 +8,8 @@ export const DetalleCompra = [
     total: cantidad + id_producto.price,
     category: "Italiano",
   },
+
+  // creo que no es necesario 
   
   // …agrega los que quieras
 ];

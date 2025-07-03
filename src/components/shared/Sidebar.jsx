@@ -1,6 +1,11 @@
 import React from "react";
 
 import { FaHome, FaSignOutAlt } from "react-icons/fa";
+// import { Body } from "./Body";
+import { useState } from "react";
+import Body from "./Body";
+
+import { CreateCategory, CreatePedido, CreateProducto } from "./Create";
 
 
 // iconos en la web 
@@ -9,11 +14,34 @@ import { FaHome, FaSignOutAlt } from "react-icons/fa";
 // bg-[#d80032] rojo intenso */
 // bg-[#333333]; gris oscuro
 
-export const Sidebar = (props) => {
+// export const Sidebar = (props , setActiveView) => {
 
-    const {ShowMenu} = props;
+
+export const Sidebar = ({ ShowMenu, setActiveView, activeView }) => {
+
+    // const {ShowMenu} = props;
+
+    // const [ShowBody, setShowBody] = useState(false);
+
+    //     const toggleBody= () => {
+    //     setShowBody(!ShowBody);
+    //   };
+
+
+
+
+    const [ShowCreate, setShowCreate] = useState(true);
+
+    const toggleCreate = () => {
+        setShowCreate(!ShowCreate);
+    };
+
+
+
 
     return (
+
+
 
         // {``} es necesario para poder app la logica y agregar variables 
 
@@ -22,58 +50,81 @@ export const Sidebar = (props) => {
         ${ShowMenu ? "left-0" : "left-full"}`}
         >
 
+
+
+
+
+
             <div>
 
-            <ul className="pl-4">
+                <ul className="pl-4">
 
-                <li>
-                    <h1 className="text-2xl text-blach-300 uppercase font-bold text-center my-5 text-bg-[#333333]"> logo</h1>
-                </li>
-{/* 
+                    <li>
+                        <h1 className="text-2xl text-blach-300 uppercase font-bold text-center my-5 text-bg-[#333333]"> logo</h1>
+                    </li>
+                    {/* 
                 este es el primero, el que queda alumbranndo cuando se renderiza la app  */}
 
-                <li className="bg-[#ffffff] p-4 rounded-tl-lg rounded-bl-xl">
-                    <a href="#" className="bg-[#d80032] p-4 block rounded-xl text-white">
-                        <FaHome   className="text-3xl" />
-                    </a>
-                </li>
+                    {/* <li className="bg-[#ffffff] p-4 rounded-tl-lg rounded-bl-xl  ">
+                        <a onClick={() => setActiveView("dishes")} href="#" className="bg-[#d80032] p-4 block rounded-xl text-white">
+                            <FaHome className="text-3xl" />
+                        </a>
+                    </li> */}
 
-                <li className="hover:bg-[#ffffff] p-4 rounded-tl-lg rounded-bl-xl group transition-colors">
-                    <a href="#" className="group-hover:bg-[#d80032] p-4 flex justify-center rounded-xl text-[#d80032] group-hover:text-white  transition-colors">
-                        <FaHome  className="text-3xl" />
-                    </a>
-                </li>
+                    <li className={`p-4 rounded-tl-lg rounded-bl-xl group transition-colors
+                      ${activeView === "dishes" ? "bg-[#ffffff]" : "hover:bg-[#ffffff]"}`}>
 
-                
-                <li className="hover:bg-[#ffffff] p-4 rounded-tl-lg rounded-bl-xl group transition-colors">
-                    <a href="#" className="group-hover:bg-[#d80032] p-4 flex justify-center rounded-xl text-[#d80032] group-hover:text-white  transition-colors">
-                        <FaHome  className="text-3xl" />
-                    </a>
-                </li>
+                        <a
+                            onClick={() => setActiveView("dishes")}
+                            href="#"
+                            className={`p-4 flex justify-center rounded-xl transition-colors
+                            ${activeView === "dishes"
+                                    ? "bg-[#d80032] text-white"
+                                    : "text-[#d80032] group-hover:bg-[#d80032] group-hover:text-white"}
+                            `}
+                        >
+                            <FaHome className="text-3xl" />
+                        </a>
+                    </li>
 
-                
-                <li className="hover:bg-[#ffffff] p-4 rounded-tl-lg rounded-bl-xl group transition-colors">
-                    <a href="#" className="group-hover:bg-[#d80032] p-4 flex justify-center rounded-xl text-[#d80032] group-hover:text-white  transition-colors">
-                        <FaHome  className="text-3xl" />
-                    </a>
-                </li>
+                     <li className={`p-4 rounded-tl-lg rounded-bl-xl group transition-colors
+                      ${activeView === "createProducto" ? "bg-[#ffffff]" : "hover:bg-[#ffffff]"}`}>
 
-                
-                <li className="hover:bg-[#ffffff] p-4 rounded-tl-lg rounded-bl-xl group transition-colors">
-                    <a href="#" className="group-hover:bg-[#d80032] p-4 flex justify-center rounded-xl text-[#d80032] group-hover:text-white  transition-colors">
-                        <FaHome  className="text-3xl" />
-                    </a>
-                </li>
+                        <a
+                            onClick={() => setActiveView("createProducto")}
+                            href="#"
+                            className={`p-4 flex justify-center rounded-xl transition-colors
+                            ${activeView === "createProducto"
+                                    ? "bg-[#d80032] text-white"
+                                    : "text-[#d80032] group-hover:bg-[#d80032] group-hover:text-white"}
+                            `}
+                        >
+                            <FaHome className="text-3xl" />
+                        </a>
+                    </li>
 
-                
-                <li className="hover:bg-[#ffffff] p-4 rounded-tl-lg rounded-bl-xl group transition-colors">
-                    <a href="#" className="group-hover:bg-[#d80032] p-4 flex justify-center rounded-xl text-[#d80032] group-hover:text-white  transition-colors">
-                        <FaHome  className="text-3xl" />
-                    </a>
-                </li>
+                     <li className={`p-4 rounded-tl-lg rounded-bl-xl group transition-colors
+                      ${activeView === "createCategory" ? "bg-[#ffffff]" : "hover:bg-[#ffffff]"}`}>
+
+                        <a
+                            onClick={() => setActiveView("createCategory")}
+                            href="#"
+                            className={`p-4 flex justify-center rounded-xl transition-colors
+                            ${activeView === "createCategory"
+                                    ? "bg-[#d80032] text-white"
+                                    : "text-[#d80032] group-hover:bg-[#d80032] group-hover:text-white"}
+                            `}
+                        >
+                            <FaHome className="text-3xl" />
+                        </a>
+                    </li>
 
 
-            </ul>
+                   
+
+
+
+                </ul>
 
             </div>
 
@@ -83,12 +134,28 @@ export const Sidebar = (props) => {
 
                 <ul className="pl-4">
                     <li className="hover:bg-[#ffffff] p-4 rounded-tl-lg rounded-bl-xl group transition-colors">
-                    <a href="#" className="group-hover:bg-[#d80032] p-4 flex justify-center rounded-xl text-[#d80032] group-hover:text-white  transition-colors">
-                        <FaSignOutAlt  className="text-3xl" />
-                    </a>
-                </li>
+                        <a href="#" className="group-hover:bg-[#d80032] p-4 flex justify-center rounded-xl text-[#d80032] group-hover:text-white  transition-colors">
+                            <FaSignOutAlt className="text-3xl" />
+                        </a>
+                    </li>
                 </ul>
             </div>
+
+
+            {/* <nav>
+                <button onClick={() => setActiveView("createCategory")} className="p-2">
+                    <FaSignOutAlt />
+                </button>
+                <button onClick={() => setActiveView("createProducto")} className="p-2">
+                    <FaSignOutAlt />
+                </button>
+                <button onClick={() => setActiveView("dishes")} className="p-2">
+                    <FaSignOutAlt />
+                </button>
+            </nav> */}
+
+
+
 
 
         </div>
