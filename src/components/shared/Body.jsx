@@ -1,100 +1,30 @@
-// import React, { useState } from 'react';
-import { FaHome, FaSignOutAlt } from "react-icons/fa";
+import { useState, useEffect } from "react";
+import axios from "axios";
 import { Card } from "./Card";
-import { cardsData } from "./Carsdata";
-import { useState } from 'react';
-import Header from "./Header";
 
-// Se extrae las categorías únicas de tu base de datos
-const categories = [...new Set(cardsData.map(c => c.category))];
-function Body(props) {
+export default function Body({ active }) {
+  const [productos, setProductos] = useState([]);
 
+  useEffect(() => {
+    axios.get("http://localhost:3001/api/productos")
+      .then(res => setProductos(res.data))
+      .catch(err => console.log("❌ Error al cargar productos:", err));
+  }, []);
 
-    // const [activeCategory, setActiveCategory] = useState(categories[0]);
+  const visibleCards = productos.filter(p => p.Id_Categoria === active);
 
-    const { active } = props;
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-4">
+      {visibleCards.map(({ Id_Producto, Nombre, Precio, Imagen }) => (
+        <Card
+          key={Id_Producto}
+          img={Imagen} // 👈 si usas URL o nombre del archivo
+          description={Nombre}
+          price={`$${Precio}`}
+        />
+      ))}
+    </div>
+  );
 
-    const visibleCards = cardsData.filter(card => card.category === active); 
-    
-      //Filtras según la categoría vigente
-    //   const visibleCards = cardsData.filter(
-    //     (card) => card.category === activeCategory
-    //   );
-
-    return (
-
-        //  {/* contenido principal donde van las comidas , cada una tendra una CARD */}
-
-        <div className="p-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-16">
-
-             
-
-            {/* Creacion de card  ,  object-cover :para no distorcionar la imagen   (shadow-2xl rounded-full : sobra para la imagen)*/}
-
-            {/* utilizar map cuando leponga la base de datos  */}
-            {/* 
-            <Card img="comida.png" description="Spacy seafood  nofdes"
-            price="$70.000 cop" category="430" />
-
-             <Card img="dish.png" description="Spacy seafood  nofdes"
-            price="$70.000 cop" category="430" />
-
-            <Card img="comida.png" description="Spacy seafood  nofdes"
-            price="$70.000 cop" category="430" />
-
-            <Card img="dish.png" description="Spacy seafood  nofdes"
-            price="$70.000 cop" category="430" />
-
-            <Card img="comida.png" description="Spacy seafood  nofdes"
-            price="$70.000 cop" category="430" /> */}
-
-            {/* <div className="p-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-16 "> */}
-
-
-
-
-            {/* {listaDePlatos
-              .filter((item) => item.category === categoriaActual)
-              .map((item, index) => (
-                <Card
-                  key={index}
-                  img={item.img}
-                  description={item.description}
-                  price={item.price}
-                  category={item.category}
-                />
-              ))} */}
-
-
-            {visibleCards.map(({ id, img, description, price, category }) => (
-                <Card
-                    key={id}
-                    img={img}
-                    description={description}
-                    price={price}
-                    category={category}
-                />
-            ))}
-            {/* </section> */}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        </div>
-    );
-};
-
-export default Body;
+  
+}

@@ -26,3 +26,8 @@ dist-ssr
 
 # ignorar la carpeta node_modules
 # .node_modules
+
+
+/uploads/*
+!/uploads/.gitkeep
+# Ignore environment files
