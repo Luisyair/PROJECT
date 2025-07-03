@@ -6,7 +6,9 @@ Nuevas funcionalidades:
 ### ✅ 1: Cambiar el body al presionar los botoibnes del slider : 2 de julio 2025
 ### ✅ 2: conectar a la base de datos los productos y categorias de los mismos
 
-## Las imagenes solo funcionan local , dentirs de la carpeta Public 📁
+#### la BASE DE DATOS esta importatda en el archivo store.sql (este sera actualizado mediante se vayan anexando nuevas funcionalidades)
+
+## Las imagenes solo funcionan local , estan dentro de la carpeta Public 📁
 
 ## 🚀 Ejecución del Proyecto en Entorno Local
 
