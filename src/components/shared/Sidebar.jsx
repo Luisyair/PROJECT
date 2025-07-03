@@ -71,14 +71,14 @@ export const Sidebar = ({ ShowMenu, setActiveView, activeView }) => {
                         </a>
                     </li> */}
 
-                    <li className={`p-4 rounded-tl-lg rounded-bl-xl group transition-colors
-                      ${activeView === "dishes" ? "bg-[#ffffff]" : "hover:bg-[#ffffff]"}`}>
+                    <li className={`p-4 rounded-tl-lg rounded-bl-xl group transition-colors  my-1
+                      ${activeView === "Product" ? "bg-[#ffffff]" : "hover:bg-[#ffffff]"}`}>
 
                         <a
-                            onClick={() => setActiveView("dishes")}
+                            onClick={() => setActiveView("Product")}
                             href="#"
                             className={`p-4 flex justify-center rounded-xl transition-colors
-                            ${activeView === "dishes"
+                            ${activeView === "Product"
                                     ? "bg-[#d80032] text-white"
                                     : "text-[#d80032] group-hover:bg-[#d80032] group-hover:text-white"}
                             `}
@@ -87,7 +87,7 @@ export const Sidebar = ({ ShowMenu, setActiveView, activeView }) => {
                         </a>
                     </li>
 
-                     <li className={`p-4 rounded-tl-lg rounded-bl-xl group transition-colors
+                      <li className={`p-4 rounded-tl-lg rounded-bl-xl group transition-colors  my-1
                       ${activeView === "createProducto" ? "bg-[#ffffff]" : "hover:bg-[#ffffff]"}`}>
 
                         <a
@@ -103,7 +103,7 @@ export const Sidebar = ({ ShowMenu, setActiveView, activeView }) => {
                         </a>
                     </li>
 
-                     <li className={`p-4 rounded-tl-lg rounded-bl-xl group transition-colors
+                     <li className={`p-4 rounded-tl-lg rounded-bl-xl group transition-colors  my-1
                       ${activeView === "createCategory" ? "bg-[#ffffff]" : "hover:bg-[#ffffff]"}`}>
 
                         <a
@@ -111,6 +111,22 @@ export const Sidebar = ({ ShowMenu, setActiveView, activeView }) => {
                             href="#"
                             className={`p-4 flex justify-center rounded-xl transition-colors
                             ${activeView === "createCategory"
+                                    ? "bg-[#d80032] text-white"
+                                    : "text-[#d80032] group-hover:bg-[#d80032] group-hover:text-white"}
+                            `}
+                        >
+                            <FaHome className="text-3xl" />
+                        </a>
+                    </li>
+
+                     <li className={`p-4 rounded-tl-lg rounded-bl-xl group transition-colors  my-1
+                      ${activeView === "CreatePedido" ? "bg-[#ffffff]" : "hover:bg-[#ffffff]"}`}>
+
+                        <a
+                            onClick={() => setActiveView("CreatePedido")}
+                            href="#"
+                            className={`p-4 flex justify-center rounded-xl transition-colors
+                            ${activeView === "CreatePedido"
                                     ? "bg-[#d80032] text-white"
                                     : "text-[#d80032] group-hover:bg-[#d80032] group-hover:text-white"}
                             `}
@@ -132,7 +148,7 @@ export const Sidebar = ({ ShowMenu, setActiveView, activeView }) => {
 
                 {/* mandar el loug out mas abajo para que se diferencie  al contendorprincipal el div de arriba el primer se le añade (flex flex-col justify-between") */}
 
-                <ul className="pl-4">
+                <ul className="pl-4  my-1">
                     <li className="hover:bg-[#ffffff] p-4 rounded-tl-lg rounded-bl-xl group transition-colors">
                         <a href="#" className="group-hover:bg-[#d80032] p-4 flex justify-center rounded-xl text-[#d80032] group-hover:text-white  transition-colors">
                             <FaSignOutAlt className="text-3xl" />

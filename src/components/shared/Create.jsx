@@ -61,11 +61,11 @@ export const CreateCategory = (props) => {
 
 export const CreateProducto= () => {
     return (
-        //    {/* crear categorias  */}
+        //    {/* crear Producto */}
         <div className="bg-[#e1e3e8] p-8 rounded-xl text-black text-center mb-5">
 
             <div className="text-center mb-14 ">
-                <h1> Categorias </h1>
+                <h1> Producto </h1>
             </div>
 
             <div className="grid grid-cols-5 gap-2 items-center">
@@ -113,11 +113,11 @@ export const CreateProducto= () => {
 
 export const CreatePedido= () => {
     return (
-        //    {/* crear categorias  */}
+        //    {/* crear Pedido  */}
         <div className="bg-[#e1e3e8] p-8 rounded-xl text-black text-center mb-5">
 
             <div className="text-center mb-14 ">
-                <h1> Categorias </h1>
+                <h1> Pedido </h1>
             </div>
 
             <div className="grid grid-cols-5 gap-2 items-center">

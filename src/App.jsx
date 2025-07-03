@@ -88,7 +88,7 @@ function App() {
 
   // ot 
 
-  const [activeView, setActiveView] = useState("dishes");
+  const [activeView, setActiveView] = useState("Product");
 
 
 
@@ -148,7 +148,7 @@ function App() {
         {/* cambio de pagina para crear productos  */}
 
         <div className="lg:col-span-6 md:p-8 p-4">
-          {activeView === "dishes" && (
+          {activeView === "Product" && (
             <>
               <Header
                 categories={categories}
@@ -167,6 +167,7 @@ function App() {
 
           {activeView === "createCategory" && <CreateCategory />}
           {activeView === "createProducto" && <CreateProducto />}
+          {activeView === "CreatePedido" && <CreatePedido />}
         </div>
 
 
