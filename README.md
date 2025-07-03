@@ -1,5 +1,12 @@
 AUN ESTA EN DESARROLLO, PARA AGREGARLE MAS FUNCIONALIDADES. listo
-(Nueva funcionalidad cambiar el body al presionar los botoibnes del slider : 2 de julio 2025)
+
+
+🚀
+Nuevas funcionalidades: 
+### ✅ 1: Cambiar el body al presionar los botoibnes del slider : 2 de julio 2025
+### ✅ 2: conectar a la base de datos los productos y categorias de los mismos
+
+## Las imagenes solo funcionan local , dentirs de la carpeta Public 📁
 
 ## 🚀 Ejecución del Proyecto en Entorno Local
 
@@ -40,7 +47,7 @@ Este comando creará una nueva carpeta con el contenido del proyecto.
 Una vez clonado el repositorio, accede al directorio del proyecto:
 
 ```bash
-cd dashboard-store-v1
+cd dashboard-store
 ```
 
 ---
